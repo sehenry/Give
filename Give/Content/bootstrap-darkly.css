@@ -75,12 +75,34 @@ body {
   line-height: 1.5;
   color: #fff;
   text-align: center;
-  background-color: #222;
+  background-color: white;
   background-image:url(GivingHands.jpg);
   background-repeat:no-repeat;
   background-position: center;
   background-attachment:fixed;
-  background-size:cover;
+  background-size:100%;
+}
+#mainContainer{
+    margin-top:50px;
+    padding-top:10px;
+    color:black;
+    font-size:18px;
+    text-align:center;
+    background-color:rgba(255,255,255,.3);
+    border-style:solid;
+    border-width:4px;
+    border-color:rgba(0,0,0,.8);
+}
+#container{
+    margin-top:10px;
+    padding-top:10px;
+    color:black;
+    font-size:18px;
+    text-align:left;
+    /*background-color:rgba(32,201,151,.3);*/
+    border-style:solid;
+    border-width:4px;
+    border-color:rgba(0,0,0,.8);
 }
 
 #jumbotron{
@@ -184,7 +206,9 @@ sup {
 
 a {
   color: #00bc8c;
-  text-decoration: none;
+  font-size:1.5rem;
+  padding-left:1rem;
+  text-decoration:none;
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
 }
@@ -229,7 +253,9 @@ figure {
 
 img {
   vertical-align: middle;
-  border-style: none;
+  border-style:solid;
+  border-color:white;
+  border-width:5px;
 }
 
 svg:not(:root) {
@@ -4205,6 +4231,9 @@ input[type="button"].btn-block {
   margin-left:60px;
   margin-right:60px;
   border-radius:.5rem;
+  border-style:solid;
+  border-color:black;
+  border-width:1px;
 }
 
 .navbar > .container,
@@ -4226,10 +4255,14 @@ input[type="button"].btn-block {
   display: inline-block;
   padding-top: 0.1rem;
   padding-bottom: 0.1rem;
+  padding-right:1rem;
   margin-right: 1rem;
   font-size: 1.5rem;
   line-height: inherit;
   white-space: nowrap;
+  border-right-style:solid; 
+  border-right-color:black;
+  border-right-width:2.5px;
   
 }
 
@@ -4428,8 +4461,9 @@ input[type="button"].btn-block {
     position: absolute;
   }
   .navbar-expand-lg .navbar-nav .nav-link {
-    padding-right: 0.5rem;
-    padding-left: 0.5rem;
+    font-size:18px;
+    padding-right: 1rem;
+    padding-left: 1rem;
   }
   .navbar-expand-lg > .container,
   .navbar-expand-lg > .container-fluid {
