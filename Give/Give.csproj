@@ -268,10 +268,16 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Views\Home\EarthHands.jpg" />
-    <Content Include="Views\Home\EarthHeart.jpg" />
-    <Content Include="Views\Home\hugging.jpg" />
-    <Content Include="Views\Home\PeopleSmiling.jpg" />
+    <Content Include="Views\Giver\EarthHeart.jpg" />
+    <Content Include="Views\Giver\hugging.jpg" />
+    <Content Include="Views\Giver\PeopleSmiling.jpg" />
+    <Content Include="Views\Recipient\EarthHeart.jpg" />
+    <Content Include="Views\Recipient\hugging.jpg" />
+    <Content Include="Views\Recipient\PeopleSmiling.jpg" />
+    <Content Include="Views\Shared\EarthHands.jpg" />
+    <Content Include="Views\Shared\EarthHeart.jpg" />
+    <Content Include="Views\Shared\hugging.jpg" />
+    <Content Include="Views\Shared\PeopleSmiling.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

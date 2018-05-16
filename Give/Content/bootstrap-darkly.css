@@ -206,8 +206,9 @@ sup {
 }
 
 a {
-  color: #00bc8c;
-  font-size:1.5rem;
+  color: #fff;
+  font-size:1.2rem;
+  padding-right:1rem;
   padding-left:1rem;
   text-decoration:none;
   background-color: transparent;
@@ -215,8 +216,7 @@ a {
 }
 
 a:hover {
-  color: #007053;
-  text-decoration: underline;
+  color: #00bc8c;
 }
 
 a:not([href]):not([tabindex]) {
