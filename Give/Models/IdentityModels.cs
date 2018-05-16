@@ -29,5 +29,12 @@ namespace Give.Models
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<Recipient> Recipients { get; set; }
+        public DbSet<Giver> Givers { get; set; }
+        public DbSet<Message> Messages { get; set; }
+        public DbSet<ItemRequest> ItemRequests { get; set; }
+        public DbSet<Donate> Donates { get; set; }
+
     }
 }

@@ -90,7 +90,7 @@ body {
     text-align:center;
     background-color:rgba(255,255,255,.3);
     border-style:solid;
-    border-width:4px;
+    border-width:3px;
     border-color:rgba(0,0,0,.8);
 }
 #container{
@@ -110,6 +110,7 @@ body {
 }
 #footer{
     color:black;
+    padding-top:250px;
 }
 
 [tabindex="-1"]:focus {
@@ -255,7 +256,7 @@ img {
   vertical-align: middle;
   border-style:solid;
   border-color:white;
-  border-width:5px;
+  border-width:3px;
 }
 
 svg:not(:root) {
@@ -4227,7 +4228,7 @@ input[type="button"].btn-block {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 1rem 1rem;
+  padding: .3rem .3rem;
   margin-left:60px;
   margin-right:60px;
   border-radius:.5rem;

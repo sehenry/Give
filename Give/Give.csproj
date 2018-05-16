@@ -196,14 +196,45 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DonateController.cs" />
+    <Compile Include="Controllers\GiverController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ItemRequestController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MessageController.cs" />
+    <Compile Include="Controllers\RecipientController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805161826085_RecipientInformation.cs" />
+    <Compile Include="Migrations\201805161826085_RecipientInformation.Designer.cs">
+      <DependentUpon>201805161826085_RecipientInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805161843587_GiverInformation.cs" />
+    <Compile Include="Migrations\201805161843587_GiverInformation.Designer.cs">
+      <DependentUpon>201805161843587_GiverInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805161857379_MessageTable.cs" />
+    <Compile Include="Migrations\201805161857379_MessageTable.Designer.cs">
+      <DependentUpon>201805161857379_MessageTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805161902485_ItemRequestsTable.cs" />
+    <Compile Include="Migrations\201805161902485_ItemRequestsTable.Designer.cs">
+      <DependentUpon>201805161902485_ItemRequestsTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805161907088_DonateTable.cs" />
+    <Compile Include="Migrations\201805161907088_DonateTable.Designer.cs">
+      <DependentUpon>201805161907088_DonateTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Donate.cs" />
+    <Compile Include="Models\Giver.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ItemRequest.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Message.cs" />
+    <Compile Include="Models\Recipient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -277,9 +308,22 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Events.cshtml" />
     <Content Include="Views\Home\Donate.cshtml" />
+    <Content Include="Views\Recipient.cshtml" />
+    <Content Include="Views\Recipient\Index.cshtml" />
+    <Content Include="Views\Recipient\Profile.cshtml" />
+    <Content Include="Views\Recipient\Messages.cshtml" />
+    <Content Include="Views\Recipient\ItemRequest.cshtml" />
+    <Content Include="Views\Giver.cshtml" />
+    <Content Include="Views\Giver\Index.cshtml" />
+    <Content Include="Views\Giver\Messages.cshtml" />
+    <Content Include="Views\Giver\ItemRequests.cshtml" />
+    <Content Include="Views\Giver\RecipientProfiles.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Donate\" />
+    <Folder Include="Views\ItemRequest\" />
+    <Folder Include="Views\Message\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -288,6 +332,23 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201805161826085_RecipientInformation.resx">
+      <DependentUpon>201805161826085_RecipientInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805161843587_GiverInformation.resx">
+      <DependentUpon>201805161843587_GiverInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805161857379_MessageTable.resx">
+      <DependentUpon>201805161857379_MessageTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805161902485_ItemRequestsTable.resx">
+      <DependentUpon>201805161902485_ItemRequestsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805161907088_DonateTable.resx">
+      <DependentUpon>201805161907088_DonateTable.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

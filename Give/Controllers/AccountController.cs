@@ -153,8 +153,14 @@ namespace Give.Controllers
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
+                if (result.Succeeded && model.UserType == "Recipient")
                 {
+                    var resultRoleAdd = await UserManager.AddToRoleAsync(user.Id, "Recipient");
+
+                    var db = new ApplicationDbContext();
+                    var recipientAccount = new Recipient { FirstName = model.FirstName, LastName = model.LastName, ApplicationUserId = user.Id };
+                    db.Recipients.Add(recipientAccount);
+                    db.SaveChanges();
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
@@ -165,9 +171,21 @@ namespace Give.Controllers
 
                     return RedirectToAction("Index", "Home");
                 }
+                else if (result.Succeeded && model.UserType == "Giver")
+                {
+                    var resultRoleAdd = await UserManager.AddToRoleAsync(user.Id, "Giver");
+
+                    var db = new ApplicationDbContext();
+                    var giverAccount = new Giver { FirstName = model.FirstName, LastName = model.LastName, ApplicationUserId = user.Id };
+                    db.Givers.Add(giverAccount);
+                    db.SaveChanges();
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);                
+
+                    return RedirectToAction("Index", "Home");
+
+                }
                 AddErrors(result);
             }
-
             // If we got this far, something failed, redisplay form
             return View(model);
         }
