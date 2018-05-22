@@ -15,6 +15,18 @@ namespace Give.Controllers
         {
             return View();
         }
+        public ActionResult ItemRequests()
+        {
+            return View();
+        }
+        public ActionResult Messages()
+        {
+            return View();
+        }
+        public ActionResult RecipientProfiles()
+        {
+            return View();
+        }
 
         // GET: Giver/Details/5
         public ActionResult Details(int id)
