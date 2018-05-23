@@ -35,6 +35,7 @@ namespace Give.Models
         public DbSet<Message> Messages { get; set; }
         public DbSet<ItemRequest> ItemRequests { get; set; }
         public DbSet<Donate> Donates { get; set; }
+        public DbSet<GiveBoard> GiveBoards { get; set; }
 
     }
 }

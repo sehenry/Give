@@ -197,6 +197,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DonateController.cs" />
+    <Compile Include="Controllers\GiveBoardController.cs" />
     <Compile Include="Controllers\GiverController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ItemRequestController.cs" />
@@ -226,9 +227,14 @@
     <Compile Include="Migrations\201805161907088_DonateTable.Designer.cs">
       <DependentUpon>201805161907088_DonateTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805232201288_GiveBoardTable.cs" />
+    <Compile Include="Migrations\201805232201288_GiveBoardTable.Designer.cs">
+      <DependentUpon>201805232201288_GiveBoardTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Donate.cs" />
+    <Compile Include="Models\GiveBoard.cs" />
     <Compile Include="Models\Giver.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ItemRequest.cs" />
@@ -245,10 +251,12 @@
     <Content Include="Content\bootstrap-journal.css" />
     <Content Include="Content\EarthHands.jpg" />
     <Content Include="Content\featuredFam2.jpg" />
+    <Content Include="Content\GiveBlocks.jpg" />
     <Content Include="Content\OrangeBackground.PNG" />
     <Content Include="Content\SuccessFam1.jpg" />
     <Content Include="Content\SuccessFam2.jpg" />
     <Content Include="Content\SuccessFam3.jpg" />
+    <Content Include="Scripts\JavaScript.js" />
     <Content Include="Views\Giver\family.jpeg" />
     <Content Include="Content\GivingHands.jpg" />
     <Content Include="Content\Hearts.PNG" />
@@ -274,13 +282,13 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Scripts\_references.js" />
     <Content Include="Views\Giver\featuredFam2.jpg" />
     <Content Include="Views\Giver\OrangeBackground.PNG" />
     <Content Include="Views\Giver\SuccessFam1.jpg" />
     <Content Include="Views\Giver\SuccessFam2.jpg" />
     <Content Include="Views\Giver\SuccessFam3.jpg" />
     <Content Include="Views\Home\EarthHeart.jpg" />
+    <Content Include="Views\Home\GiveBlocks.jpg" />
     <Content Include="Views\Home\hugging.jpg" />
     <Content Include="Views\Home\PeopleSmiling.jpg" />
     <Content Include="Web.config" />
@@ -329,6 +337,9 @@
     <Content Include="Views\Giver\Messages.cshtml" />
     <Content Include="Views\Giver\ItemRequests.cshtml" />
     <Content Include="Views\Giver\RecipientProfiles.cshtml" />
+    <Content Include="Views\Home\SuccessStories.cshtml" />
+    <Content Include="Views\GiveBoard\PostToBoard.cshtml" />
+    <Content Include="Views\GiveBoard\SearchBoard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -359,6 +370,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805161907088_DonateTable.resx">
       <DependentUpon>201805161907088_DonateTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805232201288_GiveBoardTable.resx">
+      <DependentUpon>201805232201288_GiveBoardTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,35 +1,12 @@
-﻿@model Give.Models.Recipient
-
+﻿
 @{
-    ViewBag.Title = "Home Page";
+    
 }
 
-<div id="giverContainer" class="row">
-    <div class="col-md-3 leftBorder rightBorder">
-        <p><a> @Html.ActionLink("Post Item Request", "ItemRequest", "Recipient", null, new { @class = "btn btn-secondary btn-xlg" }) </a></p>
-        <p>
-            Looking for a specific item for yourself or your family? Just post a request for it, and wait for a Giver to reach out to you!
-        </p>
-    </div>
-    <div class="col-md-6 rightBorder ">
-        <p><a> @Html.ActionLink("Update Your Profile", "Profile", "Recipient", null, new { @class = "btn btn-secondary btn-xlg" }) </a></p>
-        <p>
-            Your profile is what Giver's will see when they search for someone in need! Add pictures of you or your family,
-            share a little bit about yourself. Your item requests will be listed under your profile as well. So, if someone 
-            views you page, they can contact you if they are able to Give an item you're in need of!
-        </p>
-    </div>
-    <div class="col-md-3 rightBorder">
-        <p><a> @Html.ActionLink("Search By Items", "SearchBoard", "GiveBoard", null, new { @class = "btn btn-secondary btn-xlg" }) </a></p>
-        <p>
-            Search through our database of posted items! See an item that you need? Just click on the item to be redirected
-            to the Giver's profile.
-        </p>
-    </div>
-</div>
+
 <div id="secondaryContainer" class="row">
     <div class="col-md-12">
-        <strong><h2 class="secondaryParagraph">Giving feels GOOD! Here are some of our success stories!</h2></strong>
+        <h2 class="secondaryParagraph">Here are just some of our happy recipients!</h2>
         <div>
             <div class="row">
                 <div class="col-md-5">
@@ -69,9 +46,6 @@
                     </p>
                 </div>
             </div>
-            <div class="row topBorder">
-                <strong><p>Click<a>@Html.ActionLink("HERE", "SuccessStories", "Home", null, new { @class = "btn-secondary btn-sm" }) </a> to view more success stories!&#x2765</p></strong>
-            </div>
         </div>
     </div>
-</div>
+    </div>

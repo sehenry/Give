@@ -92,6 +92,9 @@ img {
 #mainContainer{
     margin-top:50px;
     padding-top:10px;
+    padding-left:10px;
+    padding-right:10px;
+    padding-bottom:10px;
     color:black;
     font-size:18px;
     text-align:center;
@@ -101,7 +104,7 @@ img {
     border-color:rgba(0,0,0,.8);
 }
 #giverContainer{
-    margin-top:50px;
+    margin-top:30px;
     padding-top:10px;
     color:black;
     font-size:16px;
@@ -120,25 +123,47 @@ img {
     -o-border-image: url(Hearts.PNG) 30 round; /* Opera 11-12.1 */
     border-image: url(Hearts.PNG) 30 round;
 }
+#aboutUsContainer{
+    margin-top:30px;
+    color:black;
+    font-size:24px;
+    text-align:center;
+    background-color:rgba(255,255,255,.2);  
+    border: 6px solid transparent;
+    padding: 5px;
+    -webkit-border-image: url(Hearts.PNG) 30 round; /* Safari 3.1-5 */
+    -o-border-image: url(Hearts.PNG) 30 round; /* Opera 11-12.1 */
+    border-image: url(Hearts.PNG) 30 round;
+}
 .rightBorder{
     border-right-style:solid;
-    border-right-width:1px;
-    border-right-color:black; 
+    border-right-width:2px;
+    border-right-color:white; 
       
+}
+.leftBorder{
+    border-left-style:solid;
+    border-left-width:2px;
+    border-left-color:white;
 }
 .topBorder{
     border-top-style:solid;
-    border-top-width:1px;
-    border-top-color:black;
+    border-top-width:2px;
+    border-top-color:white;
 
 }
 .secondaryParagraph{
-    margin-top:20px;
-
-    /*background-color:rgba(255,255,255,.8);*/
+    margin-top:10px;
 }
 .headContainer{
     background-color:rgba(255,255,255,.4);
+}
+.col-center{
+    display:inline-block;
+    float:none;
+}
+.paddingTop{
+    padding-top:40px;
 }
 #container{
     margin-top:10px;
@@ -180,6 +205,74 @@ p {
   margin-top: 0;
   margin-bottom: 1rem;
 }
+* {box-sizing: border-box;}
+ul {list-style-type: none;}
+
+.month {    
+    padding: 40px 25px;
+    width: 100%;
+    background: #1abc9c;
+    text-align: center;
+}
+
+.month ul {
+    margin: 0;
+    padding: 0;
+}
+
+.month ul li {
+    color: white;
+    font-size: 50px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.month .prev {
+    float: left;
+    padding-top: 10px;
+}
+
+.month .next {
+    float: right;
+    padding-top: 10px;
+}
+
+.weekdays {
+    margin: 0;
+    padding: 10px 0;
+    background-color: #ddd;
+    font-size:24px;
+}
+
+.weekdays li {
+    display: inline-block;
+    width: 13.6%;
+    color: #666;
+    text-align: center;
+}
+
+.days {
+    padding: 10px 0;
+    background: #eee;
+    margin: 0;
+}
+
+.days li {
+    list-style-type: none;
+    display: inline-block;
+    width: 13.6%;
+    text-align:center;
+    margin-bottom: 20px;
+    font-size:20px;
+    color: #777;
+}
+
+.days li .active {
+    padding: 5px;
+    background: #1abc9c;
+    color: white !important
+}
+
 
 abbr[title],
 abbr[data-original-title] {
@@ -255,8 +348,8 @@ sup {
 a {
   color: #fff;
   font-size:1.2rem;
-  padding-right:1rem;
-  padding-left:1rem;
+  padding-right:0rem;
+  padding-left:.3rem;
   text-decoration:none;
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
@@ -2674,14 +2767,14 @@ fieldset:disabled a.btn {
 
 .btn-secondary {
   color: #fff;
-  background-color: #444;
-  border-color: #444;
+  background-color: #20c997;
+  border-color: #fff;
 }
 
 .btn-secondary:hover {
   color: #fff;
-  background-color: #313131;
-  border-color: #2b2a2a;
+  background-color: #4ad7ad;
+  border-color: white;
 }
 
 .btn-secondary:focus, .btn-secondary.focus {

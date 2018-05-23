@@ -47,5 +47,17 @@ namespace Give.Controllers
 
             return View();
         }
+        public ActionResult Donate()
+        {
+            return View();
+        }
+        public ActionResult SuccessStories()
+        {
+            return View();
+        }
+        public ActionResult Events()
+        {
+            return View();
+        }
     }
 }
