@@ -3243,6 +3243,12 @@ fieldset:disabled a.btn {
   line-height: 1.5;
   border-radius: 0.3rem;
 }
+.btn-xlg, .btn-group-xlg > .btn {
+  padding: .75rem 1.75rem;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  border-radius: 0.35rem;
+}
 
 .btn-sm, .btn-group-sm > .btn {
   padding: 0.25rem 0.5rem;
