@@ -15,11 +15,31 @@ namespace Give.Controllers
         {
             return View();
         }
-        public ActionResult PostToBoard()
+        public ActionResult PostToBoard(GiveBoard model)
         {
-            return View();
+            try
+            {
+                ApplicationDbContext db = new ApplicationDbContext();
+
+                GiveBoard postToBoard = new GiveBoard();
+                postToBoard.GiverName = model.GiverName;
+                postToBoard.ItemName = model.ItemName;
+                postToBoard.ItemDescription = model.ItemDescription;
+                postToBoard.ItemLocation = model.ItemLocation;
+
+                db.GiveBoards.Add(postToBoard);
+
+                db.SaveChanges();
+
+
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            return RedirectToAction("PostToBoard");
         }
-        public ActionResult SearchBoard()
+        public ActionResult SearchBoard(GiveBoard model)
         {
             return View();
         }

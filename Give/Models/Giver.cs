@@ -22,6 +22,16 @@ namespace Give.Models
         [Column(TypeName = "varchar")]
         public string LastName { get; set; }
 
+        [Required]
+        [Display(Name = "Address")]
+        [Column(TypeName = "varchar")]
+        public string Address { get; set; }
+
+        [Required]
+        [Display(Name = "About Me")]
+        [Column(TypeName = "varchar")]
+        public string AboutMe { get; set; }
+
 
 
         public string Name

@@ -15,17 +15,77 @@ namespace Give.Controllers
         {
             return View();
         }
-        public new ActionResult Profile()
+        public new ActionResult Profile(Recipient model)
         {
-            return View();
+            try
+            {
+                ApplicationDbContext db = new ApplicationDbContext();
+
+                Recipient recipient = new Recipient();
+                recipient.FirstName = model.FirstName;
+                recipient.LastName = model.LastName;
+                recipient.Address = model.Address;
+                recipient.HouseHoldSize = model.HouseHoldSize;
+                recipient.AboutMe = model.AboutMe;
+
+                db.Recipients.Add(recipient);
+
+                db.SaveChanges();
+
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            return RedirectToAction("Index");
         }
-        public ActionResult Messages()
+        public ActionResult Messages(Message model)
         {
-            return View();
+            try
+            {
+                ApplicationDbContext db = new ApplicationDbContext();
+
+                Message message = new Message();
+                message.ReceivedMessage = model.ReceivedMessage;
+                message.SentMessage = model.SentMessage;
+                message.DateTime = model.DateTime;
+                message.MessageContent = model.MessageContent;
+                
+
+                db.Messages.Add(message);
+
+                db.SaveChanges();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return RedirectToAction("Messages");
         }
-        public ActionResult ItemRequest()
+        public ActionResult ItemRequest(ItemRequest model)
         {
-            return View();
+            try
+            {
+                ApplicationDbContext db = new ApplicationDbContext();
+
+                ItemRequest item = new ItemRequest();
+                item.DateTime = model.DateTime;
+                item.ItemName = model.ItemName;
+                item.UserName = model.UserName;
+                item.ItemRequestMessage = model.ItemRequestMessage;
+
+                db.ItemRequests.Add(item);
+
+                db.SaveChanges();
+               
+
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            return RedirectToAction("ItemRequest");
         }
         // GET: Recipient/Details/5
         public ActionResult Details(int id)

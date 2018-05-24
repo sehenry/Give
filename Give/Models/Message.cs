@@ -12,6 +12,7 @@ namespace Give.Models
         public int ID { get; set; }
         public string ReceivedMessage { get; set; }
         public string SentMessage { get; set; }
+        public string MessageContent { get; set; }
         public DateTime DateTime { get; set; }
     }
 }

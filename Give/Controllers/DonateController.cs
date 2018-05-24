@@ -16,6 +16,30 @@ namespace Give.Controllers
             return View();
         }
 
+        public ActionResult Donate(Donate model)
+        {
+            try
+            {
+                ApplicationDbContext db = new ApplicationDbContext();
+
+                Donate donate = new Donate();
+                donate.CashDonation = model.CashDonation;
+                donate.DonationType = model.DonationType;
+                donate.GiverName = model.GiverName;
+                donate.ItemDonation = model.ItemDonation;
+
+                db.Donates.Add(donate);
+
+                db.SaveChanges();
+
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            return RedirectToAction("Donate");
+        }
+
         // GET: Donate/Details/5
         public ActionResult Details(int id)
         {

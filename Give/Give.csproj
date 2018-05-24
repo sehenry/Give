@@ -231,6 +231,22 @@
     <Compile Include="Migrations\201805232201288_GiveBoardTable.Designer.cs">
       <DependentUpon>201805232201288_GiveBoardTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805241815134_RecipientTableUpdated.cs" />
+    <Compile Include="Migrations\201805241815134_RecipientTableUpdated.Designer.cs">
+      <DependentUpon>201805241815134_RecipientTableUpdated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805241825475_MessageTableUpdated.cs" />
+    <Compile Include="Migrations\201805241825475_MessageTableUpdated.Designer.cs">
+      <DependentUpon>201805241825475_MessageTableUpdated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805241840265_GiveBoardTableUpdated.cs" />
+    <Compile Include="Migrations\201805241840265_GiveBoardTableUpdated.Designer.cs">
+      <DependentUpon>201805241840265_GiveBoardTableUpdated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805241845231_GiverTableUpdated.cs" />
+    <Compile Include="Migrations\201805241845231_GiverTableUpdated.Designer.cs">
+      <DependentUpon>201805241845231_GiverTableUpdated.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Donate.cs" />
@@ -338,12 +354,15 @@
     <Content Include="Views\Giver\ItemRequests.cshtml" />
     <Content Include="Views\Giver\RecipientProfiles.cshtml" />
     <Content Include="Views\Home\SuccessStories.cshtml" />
-    <Content Include="Views\GiveBoard\PostToBoard.cshtml" />
-    <Content Include="Views\GiveBoard\SearchBoard.cshtml" />
+    <Content Include="Views\Giver\PostToBoard.cshtml" />
+    <Content Include="Views\Recipient\SearchBoard.cshtml" />
+    <Content Include="Views\Giver\Donate.cshtml" />
+    <Content Include="Views\Giver\Profile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Donate\" />
+    <Folder Include="Views\GiveBoard\" />
     <Folder Include="Views\ItemRequest\" />
     <Folder Include="Views\Message\" />
   </ItemGroup>
@@ -373,6 +392,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805232201288_GiveBoardTable.resx">
       <DependentUpon>201805232201288_GiveBoardTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805241815134_RecipientTableUpdated.resx">
+      <DependentUpon>201805241815134_RecipientTableUpdated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805241825475_MessageTableUpdated.resx">
+      <DependentUpon>201805241825475_MessageTableUpdated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805241840265_GiveBoardTableUpdated.resx">
+      <DependentUpon>201805241840265_GiveBoardTableUpdated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805241845231_GiverTableUpdated.resx">
+      <DependentUpon>201805241845231_GiverTableUpdated.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

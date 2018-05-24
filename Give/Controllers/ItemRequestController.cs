@@ -15,6 +15,30 @@ namespace Give.Controllers
         {
             return View();
         }
+        public ActionResult RequestItem(ItemRequest model)
+        {
+            try
+            {
+                ApplicationDbContext db = new ApplicationDbContext();
+
+                ItemRequest item = new ItemRequest();
+                item.DateTime = model.DateTime;
+                item.UserName = model.UserName;
+                item.ItemName = model.ItemName;
+                item.ItemRequestMessage = model.ItemRequestMessage;
+                item.Location = model.Location;
+
+                db.ItemRequests.Add(item);
+
+                db.SaveChanges();
+
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            return RedirectToAction("ItemRequest");
+        }
 
         // GET: ItemRequest/Details/5
         public ActionResult Details(int id)

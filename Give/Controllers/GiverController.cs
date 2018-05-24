@@ -15,13 +15,56 @@ namespace Give.Controllers
         {
             return View();
         }
+        public new ActionResult Profile(Giver model)
+        {
+            try
+            {
+                ApplicationDbContext db = new ApplicationDbContext();
+
+                Giver profile = new Giver();
+                profile.FirstName = model.FirstName;
+                profile.LastName = model.LastName;
+                profile.Address = model.Address;
+                profile.AboutMe = model.AboutMe;
+
+                db.Givers.Add(profile);
+
+                db.SaveChanges();
+
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            return RedirectToAction("Profile");
+        }
         public ActionResult ItemRequests()
         {
             return View();
         }
-        public ActionResult Messages()
+        public ActionResult Messages(Message model)
         {
-            return View();
+            try
+            {
+                ApplicationDbContext db = new ApplicationDbContext();
+
+                Message message = new Message();
+                message.ReceivedMessage = model.ReceivedMessage;
+                message.SentMessage = model.SentMessage;
+                message.DateTime = model.DateTime;
+                message.MessageContent = model.MessageContent;
+
+
+                db.Messages.Add(message);
+
+                db.SaveChanges();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return RedirectToAction("Messages");
         }
         public ActionResult RecipientProfiles()
         {

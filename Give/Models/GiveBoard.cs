@@ -12,5 +12,7 @@ namespace Give.Models
         public int ID { get; set; }
         public string ItemName { get; set; }
         public string GiverName { get; set; }
+        public string ItemDescription { get; set; }
+        public string ItemLocation { get; set; }
     }
 }
