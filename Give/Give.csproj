@@ -247,6 +247,10 @@
     <Compile Include="Migrations\201805241845231_GiverTableUpdated.Designer.cs">
       <DependentUpon>201805241845231_GiverTableUpdated.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805241944319_DonateTableUpdated.cs" />
+    <Compile Include="Migrations\201805241944319_DonateTableUpdated.Designer.cs">
+      <DependentUpon>201805241944319_DonateTableUpdated.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Donate.cs" />
@@ -265,6 +269,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap-journal.css" />
+    <Content Include="Content\DonateHands.png" />
     <Content Include="Content\EarthHands.jpg" />
     <Content Include="Content\featuredFam2.jpg" />
     <Content Include="Content\GiveBlocks.jpg" />
@@ -273,6 +278,7 @@
     <Content Include="Content\SuccessFam2.jpg" />
     <Content Include="Content\SuccessFam3.jpg" />
     <Content Include="Scripts\JavaScript.js" />
+    <Content Include="Views\Donate\DonateHands.png" />
     <Content Include="Views\Giver\family.jpeg" />
     <Content Include="Content\GivingHands.jpg" />
     <Content Include="Content\Hearts.PNG" />
@@ -356,13 +362,15 @@
     <Content Include="Views\Home\SuccessStories.cshtml" />
     <Content Include="Views\Giver\PostToBoard.cshtml" />
     <Content Include="Views\Recipient\SearchBoard.cshtml" />
-    <Content Include="Views\Giver\Donate.cshtml" />
     <Content Include="Views\Giver\Profile.cshtml" />
+    <Content Include="Views\Donate\Donate.cshtml" />
+    <Content Include="Views\Shared\_LayoutGiver.cshtml" />
+    <Content Include="Views\Shared\_LayoutRecipient.cshtml" />
+    <Content Include="Views\GiveBoard\PostToBoard.cshtml" />
+    <Content Include="Views\GiveBoard\SearchBoard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Donate\" />
-    <Folder Include="Views\GiveBoard\" />
     <Folder Include="Views\ItemRequest\" />
     <Folder Include="Views\Message\" />
   </ItemGroup>
@@ -404,6 +412,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805241845231_GiverTableUpdated.resx">
       <DependentUpon>201805241845231_GiverTableUpdated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805241944319_DonateTableUpdated.resx">
+      <DependentUpon>201805241944319_DonateTableUpdated.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

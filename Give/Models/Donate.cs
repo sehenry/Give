@@ -10,7 +10,15 @@ namespace Give.Models
     {
         [Key]
         public int ID { get; set; }
-        public string DonationType { get; set; }
+        public Dictionary<int, string> DonationType { get; set; }
+        public Donate()
+        {
+            DonationType = new Dictionary<int, string>()
+            {
+                {0, "Cash Donation"},
+                {1, "Item Donation" }
+            };
+        }
         public double CashDonation { get; set; }
         public string ItemDonation { get; set; }
         public string GiverName { get; set; }

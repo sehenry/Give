@@ -1,3 +1,14 @@
 ﻿@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    if (User.IsInRole("Giver"))
+    {
+        Layout = "~/Views/Shared/_LayoutGiver.cshtml";
+    }
+    else if (User.IsInRole("Recipient"))
+    {
+        Layout = "~/Views/Shared/_LayoutRecipient.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
 }

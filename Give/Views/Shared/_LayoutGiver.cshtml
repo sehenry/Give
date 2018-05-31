@@ -29,7 +29,12 @@
                 <li class="nav-item">
                     <a class="nav-link" href="@Url.Action("Contact","Home")">Contact Us</a>
                 </li>
-
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Donate","Donate")">Donate Now</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Profile","Giver")">My Profile</a>
+                </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control my-sm-2" type="text" placeholder="Search">
@@ -52,3 +57,4 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
+

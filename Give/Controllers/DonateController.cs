@@ -13,9 +13,18 @@ namespace Give.Controllers
         // GET: Donate
         public ActionResult Index()
         {
+            //ApplicationDbContext db = new ApplicationDbContext();
+            //List<DonationType> list = 
             return View();
         }
+        [HttpGet]
+        public ActionResult Donate()
+        {
+            Donate donate = new Donate();
+            return View(donate);
+        }
 
+        [HttpPost]
         public ActionResult Donate(Donate model)
         {
             try
@@ -33,14 +42,14 @@ namespace Give.Controllers
                 db.SaveChanges();
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
             return RedirectToAction("Donate");
         }
 
-        // GET: Donate/Details/5
+        //GET: Donate/Details/5
         public ActionResult Details(int id)
         {
             return View();

@@ -15,6 +15,14 @@ namespace Give.Controllers
         {
             return View();
         }
+        [HttpGet]
+        public new ActionResult Profile()
+        {
+            Giver giver = new Giver();
+            return View(giver);
+
+        }
+        [HttpPost]
         public new ActionResult Profile(Giver model)
         {
             try
@@ -66,6 +74,7 @@ namespace Give.Controllers
             }
             return RedirectToAction("Messages");
         }
+
         public ActionResult RecipientProfiles()
         {
             return View();
