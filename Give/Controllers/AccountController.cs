@@ -153,7 +153,7 @@ namespace Give.Controllers
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
-                if (result.Succeeded && model.UserType == "Recipient")
+                if (result.Succeeded && model.UserType.Equals("Recipient"))
                 {
                     var resultRoleAdd = await UserManager.AddToRoleAsync(user.Id, "Recipient");
 
@@ -171,7 +171,7 @@ namespace Give.Controllers
 
                     return RedirectToAction("Index", "Home");
                 }
-                else if (result.Succeeded && model.UserType == "Giver")
+                else if (result.Succeeded && model.UserType.Equals("Giver"))
                 {
                     var resultRoleAdd = await UserManager.AddToRoleAsync(user.Id, "Giver");
 
