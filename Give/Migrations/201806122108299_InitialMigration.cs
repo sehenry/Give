@@ -3,17 +3,42 @@ namespace Give.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class RecipientInformation : DbMigration
+    public partial class InitialMigration : DbMigration
     {
         public override void Up()
         {
             CreateTable(
-                "dbo.Recipients",
+                "dbo.Donates",
+                c => new
+                    {
+                        ID = c.Int(nullable: false, identity: true),
+                        CashDonation = c.Double(nullable: false),
+                        ItemDonation = c.String(),
+                        GiverName = c.String(),
+                    })
+                .PrimaryKey(t => t.ID);
+            
+            CreateTable(
+                "dbo.GiveBoards",
+                c => new
+                    {
+                        ID = c.Int(nullable: false, identity: true),
+                        ItemName = c.String(),
+                        GiverName = c.String(),
+                        ItemDescription = c.String(),
+                        ItemLocation = c.String(),
+                    })
+                .PrimaryKey(t => t.ID);
+            
+            CreateTable(
+                "dbo.Givers",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
                         FirstName = c.String(nullable: false, maxLength: 8000, unicode: false),
                         LastName = c.String(nullable: false, maxLength: 8000, unicode: false),
+                        Address = c.String(nullable: false, maxLength: 8000, unicode: false),
+                        AboutMe = c.String(nullable: false, maxLength: 8000, unicode: false),
                         ApplicationUserId = c.String(maxLength: 128),
                     })
                 .PrimaryKey(t => t.Id)
@@ -79,6 +104,47 @@ namespace Give.Migrations
                 .Index(t => t.RoleId);
             
             CreateTable(
+                "dbo.ItemRequests",
+                c => new
+                    {
+                        ID = c.Int(nullable: false, identity: true),
+                        ItemName = c.String(),
+                        UserName = c.String(),
+                        ItemRequestMessage = c.String(),
+                        DateTime = c.DateTime(nullable: false),
+                        Location = c.String(),
+                    })
+                .PrimaryKey(t => t.ID);
+            
+            CreateTable(
+                "dbo.Messages",
+                c => new
+                    {
+                        ID = c.Int(nullable: false, identity: true),
+                        ReceivedMessage = c.String(),
+                        SentMessage = c.String(),
+                        MessageContent = c.String(),
+                        DateTime = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.ID);
+            
+            CreateTable(
+                "dbo.Recipients",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        FirstName = c.String(nullable: false, maxLength: 8000, unicode: false),
+                        LastName = c.String(nullable: false, maxLength: 8000, unicode: false),
+                        Address = c.String(nullable: false, maxLength: 8000, unicode: false),
+                        HouseHoldSize = c.Int(nullable: false),
+                        AboutMe = c.String(nullable: false, maxLength: 8000, unicode: false),
+                        ApplicationUserId = c.String(maxLength: 128),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.AspNetUsers", t => t.ApplicationUserId)
+                .Index(t => t.ApplicationUserId);
+            
+            CreateTable(
                 "dbo.AspNetRoles",
                 c => new
                     {
@@ -94,22 +160,29 @@ namespace Give.Migrations
         {
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropForeignKey("dbo.Recipients", "ApplicationUserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.Givers", "ApplicationUserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
+            DropIndex("dbo.Recipients", new[] { "ApplicationUserId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
-            DropIndex("dbo.Recipients", new[] { "ApplicationUserId" });
+            DropIndex("dbo.Givers", new[] { "ApplicationUserId" });
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.Recipients");
+            DropTable("dbo.Messages");
+            DropTable("dbo.ItemRequests");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
-            DropTable("dbo.Recipients");
+            DropTable("dbo.Givers");
+            DropTable("dbo.GiveBoards");
+            DropTable("dbo.Donates");
         }
     }
 }

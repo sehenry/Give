@@ -44,6 +44,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -143,12 +151,6 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
@@ -207,49 +209,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805161826085_RecipientInformation.cs" />
-    <Compile Include="Migrations\201805161826085_RecipientInformation.Designer.cs">
-      <DependentUpon>201805161826085_RecipientInformation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805161843587_GiverInformation.cs" />
-    <Compile Include="Migrations\201805161843587_GiverInformation.Designer.cs">
-      <DependentUpon>201805161843587_GiverInformation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805161857379_MessageTable.cs" />
-    <Compile Include="Migrations\201805161857379_MessageTable.Designer.cs">
-      <DependentUpon>201805161857379_MessageTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805161902485_ItemRequestsTable.cs" />
-    <Compile Include="Migrations\201805161902485_ItemRequestsTable.Designer.cs">
-      <DependentUpon>201805161902485_ItemRequestsTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805161907088_DonateTable.cs" />
-    <Compile Include="Migrations\201805161907088_DonateTable.Designer.cs">
-      <DependentUpon>201805161907088_DonateTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805232201288_GiveBoardTable.cs" />
-    <Compile Include="Migrations\201805232201288_GiveBoardTable.Designer.cs">
-      <DependentUpon>201805232201288_GiveBoardTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805241815134_RecipientTableUpdated.cs" />
-    <Compile Include="Migrations\201805241815134_RecipientTableUpdated.Designer.cs">
-      <DependentUpon>201805241815134_RecipientTableUpdated.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805241825475_MessageTableUpdated.cs" />
-    <Compile Include="Migrations\201805241825475_MessageTableUpdated.Designer.cs">
-      <DependentUpon>201805241825475_MessageTableUpdated.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805241840265_GiveBoardTableUpdated.cs" />
-    <Compile Include="Migrations\201805241840265_GiveBoardTableUpdated.Designer.cs">
-      <DependentUpon>201805241840265_GiveBoardTableUpdated.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805241845231_GiverTableUpdated.cs" />
-    <Compile Include="Migrations\201805241845231_GiverTableUpdated.Designer.cs">
-      <DependentUpon>201805241845231_GiverTableUpdated.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805241944319_DonateTableUpdated.cs" />
-    <Compile Include="Migrations\201805241944319_DonateTableUpdated.Designer.cs">
-      <DependentUpon>201805241944319_DonateTableUpdated.cs</DependentUpon>
+    <Compile Include="Migrations\201806122108299_InitialMigration.cs" />
+    <Compile Include="Migrations\201806122108299_InitialMigration.Designer.cs">
+      <DependentUpon>201806122108299_InitialMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -309,8 +271,10 @@
     <Content Include="Views\Giver\SuccessFam1.jpg" />
     <Content Include="Views\Giver\SuccessFam2.jpg" />
     <Content Include="Views\Giver\SuccessFam3.jpg" />
+    <Content Include="Views\Home\ContactUs.jpg" />
     <Content Include="Views\Home\EarthHeart.jpg" />
     <Content Include="Views\Home\GiveBlocks.jpg" />
+    <Content Include="Views\Home\GiveBuilding.jpg" />
     <Content Include="Views\Home\hugging.jpg" />
     <Content Include="Views\Home\PeopleSmiling.jpg" />
     <Content Include="Web.config" />
@@ -383,38 +347,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201805161826085_RecipientInformation.resx">
-      <DependentUpon>201805161826085_RecipientInformation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805161843587_GiverInformation.resx">
-      <DependentUpon>201805161843587_GiverInformation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805161857379_MessageTable.resx">
-      <DependentUpon>201805161857379_MessageTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805161902485_ItemRequestsTable.resx">
-      <DependentUpon>201805161902485_ItemRequestsTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805161907088_DonateTable.resx">
-      <DependentUpon>201805161907088_DonateTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805232201288_GiveBoardTable.resx">
-      <DependentUpon>201805232201288_GiveBoardTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805241815134_RecipientTableUpdated.resx">
-      <DependentUpon>201805241815134_RecipientTableUpdated.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805241825475_MessageTableUpdated.resx">
-      <DependentUpon>201805241825475_MessageTableUpdated.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805241840265_GiveBoardTableUpdated.resx">
-      <DependentUpon>201805241840265_GiveBoardTableUpdated.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805241845231_GiverTableUpdated.resx">
-      <DependentUpon>201805241845231_GiverTableUpdated.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805241944319_DonateTableUpdated.resx">
-      <DependentUpon>201805241944319_DonateTableUpdated.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201806122108299_InitialMigration.resx">
+      <DependentUpon>201806122108299_InitialMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

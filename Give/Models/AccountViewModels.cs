@@ -71,15 +71,17 @@ namespace Give.Models
         [Required]
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
-        public Dictionary<int, string> UserType { get; set; }
-        public RegisterViewModel()
-        {
-            UserType = new Dictionary<int, string>()
-            {
-                {0, "Giver"},
-                {1, "Recipient" }
-            };
-        }
+        [Required]
+        [Display(Name = "User Type")]
+        public List<string> UserType { get; set; }
+        //public RegisterViewModel()
+        //{
+        //    UserType = new Dictionary<int, string>()
+        //    {
+        //        {0, "Giver"},
+        //        {1, "Recipient" }
+        //    };
+        //}
 
         //[Required]
         //[Display(Name = "User Type")]
