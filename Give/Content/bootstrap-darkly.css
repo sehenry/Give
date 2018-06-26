@@ -87,6 +87,8 @@ img {
   border-style:solid;
   border-color:white;
   border-width:1px;
+  max-width:100%;
+  max-height:100%;
 }
 #mainContainer{
     margin-top:50px;
@@ -4293,6 +4295,8 @@ input[type="button"].btn-block {
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
+  max-height:100%;
+  max-width:100%;
 }
 
 .nav-link {
@@ -4393,13 +4397,15 @@ input[type="button"].btn-block {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: .3rem .3rem;
-  margin-left:60px;
-  margin-right:60px;
+  padding: .2rem .2rem;
+  margin-left:20px;
+  margin-right:20px;
   border-radius:.5rem;
   border-style:solid;
   border-color:black;
   border-width:1px;
+  max-height:100%;
+  max-width:100%;
 }
 
 .navbar > .container,
