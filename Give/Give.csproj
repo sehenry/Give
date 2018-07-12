@@ -45,11 +45,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -319,7 +319,6 @@
     <Content Include="Views\Home\Donate.cshtml" />
     <Content Include="Views\Recipient.cshtml" />
     <Content Include="Views\Recipient\Index.cshtml" />
-    <Content Include="Views\Recipient\Profile.cshtml" />
     <Content Include="Views\Recipient\Messages.cshtml" />
     <Content Include="Views\Recipient\ItemRequest.cshtml" />
     <Content Include="Views\Giver.cshtml" />
@@ -337,6 +336,8 @@
     <Content Include="Views\GiveBoard\PostToBoard.cshtml" />
     <Content Include="Views\GiveBoard\SearchBoard.cshtml" />
     <Content Include="Views\Giver\ProfileComplete.cshtml" />
+    <Content Include="Views\Recipient\CreateProfile.cshtml" />
+    <Content Include="Views\Recipient\ProfileComplete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

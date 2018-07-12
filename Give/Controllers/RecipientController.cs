@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
+using System.Net;
 
 namespace Give.Controllers
 {
@@ -15,30 +17,52 @@ namespace Give.Controllers
         {
             return View();
         }
-        public new ActionResult Profile(Recipient model)
+        public ActionResult ProfileComplete()
         {
-            try
-            {
-                ApplicationDbContext db = new ApplicationDbContext();
-
-                Recipient recipient = new Recipient();
-                recipient.FirstName = model.FirstName;
-                recipient.LastName = model.LastName;
-                recipient.Address = model.Address;
-                recipient.HouseHoldSize = model.HouseHoldSize;
-                recipient.AboutMe = model.AboutMe;
-
-                db.Recipients.Add(recipient);
-
-                db.SaveChanges();
-
-            }
-            catch(Exception ex)
-            {
-                throw ex;
-            }
-            return RedirectToAction("Profile");
+            return View(db.Recipients.ToList());
         }
+        [HttpGet]
+        public ActionResult CreateProfile()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateProfile([Bind(Include = "FirstName, LastName, Address, AboutMe, HouseHoldSize")]Recipient recipient)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Recipients.Add(recipient);
+                db.SaveChanges();
+                return RedirectToAction("ProfileComplete");
+            }
+
+            return View(recipient);
+        }
+        //public new ActionResult Profile(Recipient model)
+        //{
+        //    try
+        //    {
+        //        ApplicationDbContext db = new ApplicationDbContext();
+
+        //        Recipient recipient = new Recipient();
+        //        recipient.FirstName = model.FirstName;
+        //        recipient.LastName = model.LastName;
+        //        recipient.Address = model.Address;
+        //        recipient.HouseHoldSize = model.HouseHoldSize;
+        //        recipient.AboutMe = model.AboutMe;
+
+        //        db.Recipients.Add(recipient);
+
+        //        db.SaveChanges();
+
+        //    }
+        //    catch(Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //    return RedirectToAction("Profile");
+        //}
         public ActionResult Messages(Message model)
         {
             try
@@ -116,47 +140,66 @@ namespace Give.Controllers
         }
 
         // GET: Recipient/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Recipient recipient = db.Recipients.Find(id);
+            if (recipient == null)
+            {
+                return HttpNotFound();
+            }
+            return View(recipient);
         }
 
         // POST: Recipient/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "FirstName, LastName, Address, AboutMe, HouseHoldSize")] Recipient recipient)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
-
+                db.Entry(recipient).State = EntityState.Modified;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            return View(recipient);
         }
 
         // GET: Recipient/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Recipient recipient = db.Recipients.Find(id);
+            if (recipient == null)
+            {
+                return HttpNotFound();
+            }
+            return View(recipient);
         }
 
         // POST: Recipient/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
         {
-            try
+            Recipient recipient = db.Recipients.Find(id);
+            db.Recipients.Remove(recipient);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
             {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
+                db.Dispose();
             }
-            catch
-            {
-                return View();
-            }
+            base.Dispose(disposing);
         }
     }
 }
