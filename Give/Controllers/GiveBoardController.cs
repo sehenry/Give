@@ -1,7 +1,9 @@
 ﻿using Give.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -13,41 +15,44 @@ namespace Give.Controllers
         // GET: GiveBoard
         public ActionResult Index()
         {
-            return View();
+            return View(db.GiveBoards.ToList());
         }
-        public ActionResult PostToBoard(GiveBoard model)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreatePost([Bind(Include = "GiverName, ItemName, ItemDescription, ItemLocation")] GiveBoard giveBoardPost)
         {
-            try
+            if (ModelState.IsValid)
             {
-                ApplicationDbContext db = new ApplicationDbContext();
-
-                GiveBoard postToBoard = new GiveBoard();
-                postToBoard.GiverName = model.GiverName;
-                postToBoard.ItemName = model.ItemName;
-                postToBoard.ItemDescription = model.ItemDescription;
-                postToBoard.ItemLocation = model.ItemLocation;
-
-                db.GiveBoards.Add(postToBoard);
-
+                db.GiveBoards.Add(giveBoardPost);
                 db.SaveChanges();
-
-
+                return RedirectToAction("Index");
             }
-            catch(Exception ex)
-            {
-                throw ex;
-            }
-            return RedirectToAction("PostToBoard");
+
+            return View(giveBoardPost);
+        }
+        [HttpGet]
+        public ActionResult CreatePost()
+        {
+            return View();
         }
         public ActionResult SearchBoard(GiveBoard model)
         {
-            return View();
+            return View("Index");
         }
 
         // GET: GiveBoard/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            GiveBoard giveboard = db.GiveBoards.Find(id);
+            if (giveboard == null)
+            {
+                return HttpNotFound();
+            }
+            return View(giveboard);
         }
 
         // GET: GiveBoard/Create
@@ -80,40 +85,69 @@ namespace Give.Controllers
 
         // POST: GiveBoard/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int? id)
         {
-            try
+            if (id == null)
             {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            catch
+            GiveBoard giveBoardPost = db.GiveBoards.Find(id);
+            if (giveBoardPost == null)
             {
-                return View();
+                return HttpNotFound();
             }
+            return View(giveBoardPost);
         }
 
-        // GET: GiveBoard/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: GiveBoard/Delete/5
+        // POST: GiveBoards/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "SuperheroID,Name,Power,Age")] GiveBoard giveBoardPost)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add delete logic here
-
+                db.Entry(giveBoardPost).State = EntityState.Modified;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
+            return View(giveBoardPost);
+        }
+
+        // GET: GiveBoards/Delete/5
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
             {
-                return View();
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            GiveBoard giveBoardPost = db.GiveBoards.Find(id);
+            if (giveBoardPost == null)
+            {
+                return HttpNotFound();
+            }
+            return View(giveBoardPost);
+        }
+
+        // POST: GiveBoards/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            GiveBoard giveBoardPost = db.GiveBoards.Find(id);
+            db.GiveBoards.Remove(giveBoardPost);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }

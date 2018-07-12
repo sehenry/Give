@@ -327,17 +327,17 @@
     <Content Include="Views\Giver\ItemRequests.cshtml" />
     <Content Include="Views\Giver\RecipientProfiles.cshtml" />
     <Content Include="Views\Home\SuccessStories.cshtml" />
-    <Content Include="Views\Giver\PostToBoard.cshtml" />
     <Content Include="Views\Recipient\SearchBoard.cshtml" />
     <Content Include="Views\Giver\CreateProfile.cshtml" />
     <Content Include="Views\Donate\Donate.cshtml" />
     <Content Include="Views\Shared\_LayoutGiver.cshtml" />
     <Content Include="Views\Shared\_LayoutRecipient.cshtml" />
-    <Content Include="Views\GiveBoard\PostToBoard.cshtml" />
-    <Content Include="Views\GiveBoard\SearchBoard.cshtml" />
     <Content Include="Views\Giver\ProfileComplete.cshtml" />
     <Content Include="Views\Recipient\CreateProfile.cshtml" />
     <Content Include="Views\Recipient\ProfileComplete.cshtml" />
+    <Content Include="Views\GiveBoard\CreatePost.cshtml" />
+    <Content Include="Views\GiveBoard\Index.cshtml" />
+    <Content Include="Views\GiveBoard\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
