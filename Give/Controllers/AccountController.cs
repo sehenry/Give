@@ -166,7 +166,7 @@ namespace Give.Controllers
                         var resultRoleAdd = await UserManager.AddToRoleAsync(user.Id, "Recipient");
 
                         var db = new ApplicationDbContext();
-                        var recipientAccount = new Recipient { FirstName = model.FirstName, LastName = model.LastName, ApplicationUserId = user.Id };
+                        var recipientAccount = new Recipient { FirstName = model.FirstName, LastName = model.LastName, Address = model.Address, AboutMe = model.AboutMe, HouseHoldSize = model.HouseHoldSize, ApplicationUserId = user.Id };
                         db.Recipients.Add(recipientAccount);
                         db.SaveChanges();
                         await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
@@ -184,7 +184,7 @@ namespace Give.Controllers
                         var resultRoleAdd = await UserManager.AddToRoleAsync(user.Id, "Giver");
 
                         var db = new ApplicationDbContext();
-                        var giverAccount = new Giver { FirstName = model.FirstName, LastName = model.LastName, ApplicationUserId = user.Id };
+                        var giverAccount = new Giver { FirstName = model.FirstName, LastName = model.LastName, Address = model.Address, AboutMe = model.AboutMe, ApplicationUserId = user.Id };
                         db.Givers.Add(giverAccount);
                         db.SaveChanges();
                         await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);

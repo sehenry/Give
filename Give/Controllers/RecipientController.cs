@@ -37,7 +37,7 @@ namespace Give.Controllers
             {
                 throw ex;
             }
-            return RedirectToAction("Index");
+            return RedirectToAction("Profile");
         }
         public ActionResult Messages(Message model)
         {

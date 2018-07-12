@@ -213,6 +213,10 @@
     <Compile Include="Migrations\201806122108299_InitialMigration.Designer.cs">
       <DependentUpon>201806122108299_InitialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807031956526_UpdatedProfiles.cs" />
+    <Compile Include="Migrations\201807031956526_UpdatedProfiles.Designer.cs">
+      <DependentUpon>201807031956526_UpdatedProfiles.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Donate.cs" />
@@ -326,12 +330,13 @@
     <Content Include="Views\Home\SuccessStories.cshtml" />
     <Content Include="Views\Giver\PostToBoard.cshtml" />
     <Content Include="Views\Recipient\SearchBoard.cshtml" />
-    <Content Include="Views\Giver\Profile.cshtml" />
+    <Content Include="Views\Giver\CreateProfile.cshtml" />
     <Content Include="Views\Donate\Donate.cshtml" />
     <Content Include="Views\Shared\_LayoutGiver.cshtml" />
     <Content Include="Views\Shared\_LayoutRecipient.cshtml" />
     <Content Include="Views\GiveBoard\PostToBoard.cshtml" />
     <Content Include="Views\GiveBoard\SearchBoard.cshtml" />
+    <Content Include="Views\Giver\ProfileComplete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -349,6 +354,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201806122108299_InitialMigration.resx">
       <DependentUpon>201806122108299_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807031956526_UpdatedProfiles.resx">
+      <DependentUpon>201807031956526_UpdatedProfiles.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

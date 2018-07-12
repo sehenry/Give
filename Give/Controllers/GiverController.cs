@@ -1,7 +1,9 @@
 ﻿using Give.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -15,36 +17,47 @@ namespace Give.Controllers
         {
             return View();
         }
-        [HttpGet]
-        public new ActionResult Profile()
+        public ActionResult ProfileComplete()
         {
-            Giver giver = new Giver();
-            return View(giver);
-
+            return View(db.Givers.ToList());
+        }
+        [HttpGet]
+        public ActionResult CreateProfile()
+        {           
+            return View();
         }
         [HttpPost]
-        public new ActionResult Profile(Giver model)
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateProfile([Bind(Include = "FirstName, LastName, Address, AboutMe")]Giver giver)
         {
-            try
+            if (ModelState.IsValid)
             {
-                ApplicationDbContext db = new ApplicationDbContext();
-
-                Giver profile = new Giver();
-                profile.FirstName = model.FirstName;
-                profile.LastName = model.LastName;
-                profile.Address = model.Address;
-                profile.AboutMe = model.AboutMe;
-
-                db.Givers.Add(profile);
-
+                db.Givers.Add(giver);
                 db.SaveChanges();
+                return RedirectToAction("ProfileComplete");
+            }
 
-            }
-            catch(Exception ex)
-            {
-                throw ex;
-            }
-            return RedirectToAction("Profile");
+            return View(giver);
+            //try
+            //{
+            //    ApplicationDbContext db = new ApplicationDbContext();
+
+            //    Giver profile = new Giver();
+            //    profile.FirstName = model.FirstName;
+            //    profile.LastName = model.LastName;
+            //    profile.Address = model.Address;
+            //    profile.AboutMe = model.AboutMe;
+
+            //    db.Givers.Add(profile);
+
+            //    db.SaveChanges();
+
+            //}
+            //catch(Exception ex)
+            //{
+            //    throw ex;
+            //}
+            //return View(model);
         }
         public ActionResult ItemRequests()
         {
@@ -81,9 +94,18 @@ namespace Give.Controllers
         }
 
         // GET: Giver/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Giver giver = db.Givers.Find(id);
+            if (giver == null)
+            {
+                return HttpNotFound();
+            }
+            return View(giver);
         }
 
         // GET: Giver/Create
@@ -109,47 +131,66 @@ namespace Give.Controllers
         }
 
         // GET: Giver/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Giver giver = db.Givers.Find(id);
+            if (giver == null)
+            {
+                return HttpNotFound();
+            }
+            return View(giver);
         }
 
         // POST: Giver/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "SuperheroID,Name,Power,Age")] Giver giver)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
-
+                db.Entry(giver).State = EntityState.Modified;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            return View(giver);
         }
 
         // GET: Giver/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Giver giver = db.Givers.Find(id);
+            if (giver == null)
+            {
+                return HttpNotFound();
+            }
+            return View(giver);
         }
 
         // POST: Giver/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
         {
-            try
+            Giver giver = db.Givers.Find(id);
+            db.Givers.Remove(giver);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
             {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
+                db.Dispose();
             }
-            catch
-            {
-                return View();
-            }
+            base.Dispose(disposing);
         }
     }
 }
