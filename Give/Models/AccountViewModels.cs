@@ -72,17 +72,6 @@ namespace Give.Models
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
-        [Required]
-        [Display(Name = "Address")]
-        public string Address { get; set; }
-
-        [Required]
-        [Display(Name = "Household Size")]
-        public int HouseHoldSize { get; set; }
-
-        [Required]
-        [Display(Name = "About Me")]
-        public string AboutMe { get; set; }
 
 
 

@@ -117,7 +117,7 @@ img {
     color:black;
     font-size:18px;
     text-align:center;
-    background-color:rgba(255,255,255,.2);  
+    background-color:rgba(255,255,255,.5);  
     border: 6px solid transparent;
     padding: 5px;
     -webkit-border-image: url(Hearts.PNG) 30 round; /* Safari 3.1-5 */
@@ -220,8 +220,19 @@ p {
   margin-top: 0;
   margin-bottom: 1rem;
 }
+tr{
+    color:black;
+    font-size:18px;
+    background-color:rgba(255,255,255,.3);
+}
+
 * {box-sizing: border-box;}
 ul {list-style-type: none;}
+
+#editDelete{
+    color:black;
+    font-size:16px;
+}
 
 .month {    
     padding: 40px 25px;

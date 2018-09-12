@@ -4,9 +4,12 @@
     ViewBag.Title = "";
 }
 
-<p>
-    @Html.ActionLink("My Profile", "ProfileComplete")
-</p>
+<div id="giverContainer" class="col-md-12 col-center">
+    <div class="rightBorder leftBorder">
+        <h1>My Profile</h1>
+        <h2>Please contact me if you're able to Give!</h2>
+    </div>
+</div>
 <table class="table">
     <tr>
         <th>
@@ -45,7 +48,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.HouseHoldSize)
             </td>
-            <td>
+            <td id="editDelete">
                 @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
                 @Html.ActionLink("Details", "Details", new { id = item.Id }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.Id })

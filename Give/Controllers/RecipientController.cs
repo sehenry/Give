@@ -39,30 +39,7 @@ namespace Give.Controllers
 
             return View(recipient);
         }
-        //public new ActionResult Profile(Recipient model)
-        //{
-        //    try
-        //    {
-        //        ApplicationDbContext db = new ApplicationDbContext();
-
-        //        Recipient recipient = new Recipient();
-        //        recipient.FirstName = model.FirstName;
-        //        recipient.LastName = model.LastName;
-        //        recipient.Address = model.Address;
-        //        recipient.HouseHoldSize = model.HouseHoldSize;
-        //        recipient.AboutMe = model.AboutMe;
-
-        //        db.Recipients.Add(recipient);
-
-        //        db.SaveChanges();
-
-        //    }
-        //    catch(Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //    return RedirectToAction("Profile");
-        //}
+        
         public ActionResult Messages(Message model)
         {
             try
@@ -87,30 +64,7 @@ namespace Give.Controllers
             }
             return RedirectToAction("Messages");
         }
-        public ActionResult ItemRequest(ItemRequest model)
-        {
-            try
-            {
-                ApplicationDbContext db = new ApplicationDbContext();
 
-                ItemRequest item = new ItemRequest();
-                item.DateTime = model.DateTime;
-                item.ItemName = model.ItemName;
-                item.UserName = model.UserName;
-                item.ItemRequestMessage = model.ItemRequestMessage;
-
-                db.ItemRequests.Add(item);
-
-                db.SaveChanges();
-               
-
-            }
-            catch(Exception ex)
-            {
-                throw ex;
-            }
-            return RedirectToAction("ItemRequest");
-        }
         // GET: Recipient/Details/5
         public ActionResult Details(int id)
         {

@@ -202,7 +202,7 @@
     <Compile Include="Controllers\GiveBoardController.cs" />
     <Compile Include="Controllers\GiverController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ItemRequestController.cs" />
+    <Compile Include="Controllers\ItemRequestsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\RecipientController.cs" />
@@ -216,6 +216,10 @@
     <Compile Include="Migrations\201807031956526_UpdatedProfiles.cs" />
     <Compile Include="Migrations\201807031956526_UpdatedProfiles.Designer.cs">
       <DependentUpon>201807031956526_UpdatedProfiles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809112125110_RequestItemUpdate.cs" />
+    <Compile Include="Migrations\201809112125110_RequestItemUpdate.Designer.cs">
+      <DependentUpon>201809112125110_RequestItemUpdate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -320,7 +324,6 @@
     <Content Include="Views\Recipient.cshtml" />
     <Content Include="Views\Recipient\Index.cshtml" />
     <Content Include="Views\Recipient\Messages.cshtml" />
-    <Content Include="Views\Recipient\ItemRequest.cshtml" />
     <Content Include="Views\Giver.cshtml" />
     <Content Include="Views\Giver\Index.cshtml" />
     <Content Include="Views\Giver\Messages.cshtml" />
@@ -338,10 +341,19 @@
     <Content Include="Views\GiveBoard\CreatePost.cshtml" />
     <Content Include="Views\GiveBoard\Index.cshtml" />
     <Content Include="Views\GiveBoard\Delete.cshtml" />
+    <Content Include="Views\GiveBoard\Edit.cshtml" />
+    <Content Include="Views\Giver\Edit.cshtml" />
+    <Content Include="Views\Giver\Delete.cshtml" />
+    <Content Include="Views\Recipient\Edit.cshtml" />
+    <Content Include="Views\Recipient\Delete.cshtml" />
+    <Content Include="Views\ItemRequests\Create.cshtml" />
+    <Content Include="Views\ItemRequests\Delete.cshtml" />
+    <Content Include="Views\ItemRequests\Details.cshtml" />
+    <Content Include="Views\ItemRequests\Edit.cshtml" />
+    <Content Include="Views\ItemRequests\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\ItemRequest\" />
     <Folder Include="Views\Message\" />
   </ItemGroup>
   <ItemGroup>
@@ -358,6 +370,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807031956526_UpdatedProfiles.resx">
       <DependentUpon>201807031956526_UpdatedProfiles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809112125110_RequestItemUpdate.resx">
+      <DependentUpon>201809112125110_RequestItemUpdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
