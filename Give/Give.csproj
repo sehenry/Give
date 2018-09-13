@@ -204,7 +204,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ItemRequestsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\MessageController.cs" />
+    <Compile Include="Controllers\MessagesController.cs" />
     <Compile Include="Controllers\RecipientController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -220,6 +220,10 @@
     <Compile Include="Migrations\201809112125110_RequestItemUpdate.cs" />
     <Compile Include="Migrations\201809112125110_RequestItemUpdate.Designer.cs">
       <DependentUpon>201809112125110_RequestItemUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809121750306_UpdateGiveBoard.cs" />
+    <Compile Include="Migrations\201809121750306_UpdateGiveBoard.Designer.cs">
+      <DependentUpon>201809121750306_UpdateGiveBoard.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -242,7 +246,9 @@
     <Content Include="Content\DonateHands.png" />
     <Content Include="Content\EarthHands.jpg" />
     <Content Include="Content\featuredFam2.jpg" />
+    <Content Include="Content\GiftGiving.svg" />
     <Content Include="Content\GiveBlocks.jpg" />
+    <Content Include="Content\HighFivePeople.png" />
     <Content Include="Content\OrangeBackground.PNG" />
     <Content Include="Content\SuccessFam1.jpg" />
     <Content Include="Content\SuccessFam2.jpg" />
@@ -285,6 +291,7 @@
     <Content Include="Views\Home\GiveBuilding.jpg" />
     <Content Include="Views\Home\hugging.jpg" />
     <Content Include="Views\Home\PeopleSmiling.jpg" />
+    <Content Include="Views\ItemRequests\GiftGiving.svg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -323,20 +330,14 @@
     <Content Include="Views\Home\Donate.cshtml" />
     <Content Include="Views\Recipient.cshtml" />
     <Content Include="Views\Recipient\Index.cshtml" />
-    <Content Include="Views\Recipient\Messages.cshtml" />
     <Content Include="Views\Giver.cshtml" />
     <Content Include="Views\Giver\Index.cshtml" />
-    <Content Include="Views\Giver\Messages.cshtml" />
-    <Content Include="Views\Giver\ItemRequests.cshtml" />
-    <Content Include="Views\Giver\RecipientProfiles.cshtml" />
     <Content Include="Views\Home\SuccessStories.cshtml" />
-    <Content Include="Views\Recipient\SearchBoard.cshtml" />
     <Content Include="Views\Giver\CreateProfile.cshtml" />
     <Content Include="Views\Donate\Donate.cshtml" />
     <Content Include="Views\Shared\_LayoutGiver.cshtml" />
     <Content Include="Views\Shared\_LayoutRecipient.cshtml" />
     <Content Include="Views\Giver\ProfileComplete.cshtml" />
-    <Content Include="Views\Recipient\CreateProfile.cshtml" />
     <Content Include="Views\Recipient\ProfileComplete.cshtml" />
     <Content Include="Views\GiveBoard\CreatePost.cshtml" />
     <Content Include="Views\GiveBoard\Index.cshtml" />
@@ -344,17 +345,24 @@
     <Content Include="Views\GiveBoard\Edit.cshtml" />
     <Content Include="Views\Giver\Edit.cshtml" />
     <Content Include="Views\Giver\Delete.cshtml" />
-    <Content Include="Views\Recipient\Edit.cshtml" />
-    <Content Include="Views\Recipient\Delete.cshtml" />
     <Content Include="Views\ItemRequests\Create.cshtml" />
     <Content Include="Views\ItemRequests\Delete.cshtml" />
     <Content Include="Views\ItemRequests\Details.cshtml" />
     <Content Include="Views\ItemRequests\Edit.cshtml" />
     <Content Include="Views\ItemRequests\Index.cshtml" />
+    <Content Include="Views\Messages\Create.cshtml" />
+    <Content Include="Views\Messages\Delete.cshtml" />
+    <Content Include="Views\Messages\Details.cshtml" />
+    <Content Include="Views\Messages\Edit.cshtml" />
+    <Content Include="Views\Messages\Index.cshtml" />
+    <Content Include="Views\Recipient\Create.cshtml" />
+    <Content Include="Views\Recipient\Delete.cshtml" />
+    <Content Include="Views\Recipient\Details.cshtml" />
+    <Content Include="Views\Recipient\Edit.cshtml" />
+    <Content Include="Views\Recipient\RecipientIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Message\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -373,6 +381,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809112125110_RequestItemUpdate.resx">
       <DependentUpon>201809112125110_RequestItemUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809121750306_UpdateGiveBoard.resx">
+      <DependentUpon>201809121750306_UpdateGiveBoard.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.Collections;
+using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
@@ -36,6 +37,6 @@ namespace Give.Models
         public DbSet<ItemRequest> ItemRequests { get; set; }
         public DbSet<Donate> Donates { get; set; }
         public DbSet<GiveBoard> GiveBoards { get; set; }
-
+        public IEnumerable ApplicationUsers { get; internal set; }
     }
 }

@@ -1,14 +1,19 @@
 ﻿@model IEnumerable<Give.Models.ItemRequest>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<div id="giverContainer" class="row col-md-12">
+    <div class="rightBorder leftBorder">
+        <h1>Item Requests</h1>
+        <h4>
+            Check out the requests from people in your community. See an item you have to Give? Click on the user name
+            to be redirected to their profile.
+        </h4>
+    </div>
+</div>
 <table class="table">
     <tr>
         <th>
@@ -35,7 +40,7 @@
             @Html.DisplayFor(modelItem => item.ItemName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.UserName)
+            @Html.ActionLink(item.UserName,"ProfileComplete","Recipient")
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ItemRequestMessage)
@@ -55,3 +60,6 @@
 }
 
 </table>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
